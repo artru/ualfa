@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<ul>
+  <% @catalog.each do |cat| %>
+        <li><%= cat.name %></li>
+        <%= link_to 'categorues', :controller => 'category', :action => 'new', :catalog_id => cat.id   %>
+  <% end %>
+  </ul>
+
+
+<ul>
+  <% @catalog.each do |cat| %>
+        <li><%= cat.name %></li>
+         <ul>
+           <% cat.categories.each do|catg| %>
+               <% unless catg.name == 'One' %>
+                 <li><%= catg.name %></li>
+               <% end   %>
+           <% end %>
+         </ul>
+  <% end %>
+  </ul>
+
+
